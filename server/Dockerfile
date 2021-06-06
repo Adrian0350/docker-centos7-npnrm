@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-LABEL maintainer="Linnk"
+LABEL maintainer="Adrián Zúñiga"
 
 # User and Enviroments
 RUN groupadd incremen && useradd -g incremen incremen
@@ -71,7 +71,7 @@ ENV PATH "/composer/vendor/bin:$PATH"
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
-ENV COMPOSER_VERSION 1.4.2
+ENV COMPOSER_VERSION 2.1.1
 
 RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/composer/getcomposer.org/da290238de6d63faace0343efbdd5aa9354332c5/web/installer \
  && php -r " \
