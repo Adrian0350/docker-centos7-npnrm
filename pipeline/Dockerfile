@@ -32,7 +32,8 @@ RUN yum install -y php \
 	php-pdo \
 	php-opcache \
 	php-pecl-xdebug \
-	php-xml
+	php-xml \
+	php-zip
 
 RUN sed -ie "s/;date.timezone =/date.timezone = America\/Mexico_City/" /etc/php.ini && \
 	sed -ie "s/upload_max_filesize = 2M/upload_max_filesize = 5M/" /etc/php.ini
