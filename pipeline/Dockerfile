@@ -5,6 +5,9 @@ LABEL maintainer="Adrián Zúñiga"
 # Installing utilities
 RUN yum install -y unzip gettext epel-release
 
+# Install SSH
+RUN yum install -y openssh-server openssh-clients
+
 # Installing Node, NPM & packages
 RUN yum install -y nodejs npm
 RUN npm install -g pm2 grunt-cli n
