@@ -3,7 +3,7 @@ FROM centos:centos7
 LABEL maintainer="Adrián Zúñiga"
 
 # Installing utilities
-RUN yum install -y unzip gettext epel-release
+RUN yum install -y unzip gettext epel-release yum-utils
 
 # Install SSH
 RUN yum install -y openssh-server openssh-clients

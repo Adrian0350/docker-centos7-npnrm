@@ -29,7 +29,7 @@ VOLUME /var/lib/mysql
 # Installing NodeJS & NPM
 RUN yum install -y nodejs npm
 RUN npm install -g pm2 grunt-cli n
-RUN n 6.9.3
+RUN n 10.23.2
 
 # Installing JSCS and JSHint
 RUN npm install -g jscs
