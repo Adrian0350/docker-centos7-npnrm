@@ -4,7 +4,7 @@ LABEL maintainer="Adrián Zúñiga"
 
 # User and Enviroments
 RUN groupadd incremen && useradd -g incremen incremen
-ENV PACKAGE_URL https://repo.mysql.com/yum/mysql-5.7-community/docker/x86_64/mysql-community-server-minimal-5.7.18-1.el7.x86_64.rpm
+ENV PACKAGE_URL https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
 
 # Installing utilities
 RUN yum install -y \
@@ -19,10 +19,10 @@ RUN yum install -y \
 	nano
 
 # Installing MySQL server
-RUN rpmkeys --import http://repo.mysql.com/RPM-GPG-KEY-mysql \
-  && yum install -y $PACKAGE_URL \
-  && yum install -y libpwquality \
-  && rm -rf /var/cache/yum/*
+RUN rpmkeys --import http://repo.mysql.com/RPM-GPG-KEY-mysql
+RUN yum install -y $PACKAGE_URL
+RUN yum install -y libpwquality
+RUN rm -rf /var/cache/yum/*
 
 VOLUME /var/lib/mysql
 
