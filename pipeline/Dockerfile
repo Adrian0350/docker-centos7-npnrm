@@ -11,18 +11,18 @@ RUN yum install -y openssh-server openssh-clients
 # Installing Node, NPM & packages
 RUN yum install -y nodejs npm
 RUN npm install -g pm2 grunt-cli n
-RUN n 10.23.2
+RUN n 16.18.1
 
 # Installing JSCS and JSHint
 RUN npm install -g jscs
 RUN npm install -g jshint
 
-# Installing PHP 7.1
+# Installing PHP 7.4
 RUN yum install -y \
 	https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
 	http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
-RUN	yum-config-manager --enable remi-php71
+RUN	yum-config-manager --enable remi-php74
 RUN yum install -y php \
 	php-pecl-redis \
 	php-fpm \
@@ -80,3 +80,6 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 CMD ["node"]
+
+################################# Uncomment the following to test OS #################################
+# CMD ["/usr/sbin/init"]

@@ -4,7 +4,7 @@ LABEL maintainer="Adrián Zúñiga"
 
 # User and Enviroments
 RUN groupadd incremen && useradd -g incremen incremen
-ENV PACKAGE_URL https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+ENV PACKAGE_URL https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
 
 # Installing utilities
 RUN yum install -y \
@@ -21,8 +21,7 @@ RUN yum install -y \
 # Installing MySQL server
 RUN rpmkeys --import http://repo.mysql.com/RPM-GPG-KEY-mysql
 RUN yum install -y $PACKAGE_URL
-RUN yum install -y libpwquality
-RUN rm -rf /var/cache/yum/*
+RUN yum clean all
 
 VOLUME /var/lib/mysql
 
@@ -35,12 +34,12 @@ RUN n 10.23.2
 RUN npm install -g jscs
 RUN npm install -g jshint
 
-# Installing PHP 7.1
+# Installing PHP 7.4
 RUN yum install -y \
 	https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
 	http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
-RUN	yum-config-manager --enable remi-php71
+RUN	yum-config-manager --enable remi-php74
 RUN yum install -y php \
 	php-pecl-redis \
 	php-fpm \

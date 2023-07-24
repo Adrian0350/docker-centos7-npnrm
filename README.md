@@ -26,7 +26,7 @@ docker pull linnk/centos7-np-pipeline
 
 ## Building Image
 
-Instructions to build yourself the image:
+Instructions to build the image yourself:
 
 ```
 docker build -t docker-centos7-npnrm .
@@ -45,5 +45,13 @@ Stopping and clearing:
 docker stop centos7-npnrm
 docker rm centos7-npnrm
 ```
+
+## Pushing Image to Docker Hub
+
+```
+# There is an image with PHP7.1, for PHP7.4 use the tag "php7.4"
+docker push adrian0350/incrementacrm-pipelines:php74 
+```
+
 
 Docker containers are fun. :)
