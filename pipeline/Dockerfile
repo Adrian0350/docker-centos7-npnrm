@@ -11,7 +11,8 @@ RUN yum install -y openssh-server openssh-clients
 # Installing Node, NPM & packages
 RUN yum install -y nodejs npm
 RUN npm install -g pm2 grunt-cli n
-RUN n 16.18.1
+RUN n 10.24.1
+RUN npm install -g npm@6.14.12
 
 # Installing JSCS and JSHint
 RUN npm install -g jscs
@@ -82,4 +83,4 @@ WORKDIR /usr/src/app
 CMD ["node"]
 
 ################################# Uncomment the following to test OS #################################
-# CMD ["/usr/sbin/init"]
+# CMD ["/usr/sbin/init"]
