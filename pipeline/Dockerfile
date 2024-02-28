@@ -3,7 +3,7 @@ FROM --platform=linux/amd64 centos:centos7
 LABEL maintainer="Adrián Zúñiga"
 
 # Installing utilities
-RUN yum install -y unzip gettext epel-release yum-utils
+RUN yum install -y unzip gettext epel-release yum-utils git
 
 # Install SSH
 RUN yum install -y openssh-server openssh-clients
@@ -11,7 +11,7 @@ RUN yum install -y openssh-server openssh-clients
 # Installing Node, NPM & packages
 RUN yum install -y nodejs npm
 RUN npm install -g pm2 grunt-cli n
-RUN n 10.24.1
+RUN n 14.21.1
 RUN npm install -g npm@6.14.12
 
 # Installing JSCS and JSHint
@@ -82,5 +82,5 @@ WORKDIR /usr/src/app
 
 CMD ["node"]
 
-################################# Uncomment the following to test OS #################################
-# CMD ["/usr/sbin/init"]
+################################# Uncomment the following to test OS in Docker #################################
+# CMD ["/usr/sbin/init"]
