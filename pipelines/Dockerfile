@@ -63,9 +63,9 @@ RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/compos
  && composer --ansi --version --no-interaction
 
 # Installing Allman CodeSniffer
-RUN composer global require linnk/allman-codesniffer
+RUN composer global require adrian0350/allman-codesniffer
 
-RUN phpcs --config-set installed_paths /composer/vendor/linnk/allman-codesniffer/
+RUN phpcs --config-set installed_paths /composer/vendor/adrian0350/allman-codesniffer/
 RUN phpcs --config-set default_standard Allman
 RUN phpcs --config-set report_width auto
 RUN phpcs --config-set show_progress 1
